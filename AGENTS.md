@@ -1,32 +1,41 @@
-# AGENTS.md
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
 
-## Project Type
-Static portfolio website (HTML/CSS/JS). No build system or package manager.
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+<!-- END:nextjs-agent-rules -->
 
-## Entry Point
-Open `index.html` in a browser to view the site.
+## Project
 
-## Dependencies
-- [Typed.js](https://github.com/mattboldt/typed.js/) - typing animation
-- [ScrollReveal](https://scrollrevealjs.org/) - scroll animations
-- [Unicons](https://iconscout.com/) - icon library
+Next.js 16 App Router + TypeScript + Tailwind CSS v4 + Framer Motion portfolio site.
 
-All loaded via CDN in `index.html`.
+## Commands
 
-## Linting
-`.hintrc` configures [webhint](https://webhint.io/) for accessibility/performance hints.
+```sh
+npm run dev      # dev server at http://localhost:3000
+npm run build    # production build
+npm run start    # serve production build
+npm run lint     # ESLint (flat config: eslint.config.mjs)
+```
 
-Run with: `npx hint .` (requires Node.js)
+## Source Layout
 
-## External Links
-- Resume PDF: `resume.pdf` → Google Drive
-- GitHub: script.js:76 - links to github.com/beckkenstschaft
-- LinkedIn: script.js:90 - links to linkedin.com/in/syed-amaan-hasan-497898212
+```
+src/
+  app/             # App Router: layout.tsx, page.tsx, globals.css
+  components/      # Page sections (Navbar, Hero, About, Skills, Projects, Contact, Footer)
+    ui/            # Reusable primitives (Button, CustomCursor, Skeleton, SectionHeading, etc.)
+  constants/
+    data.ts        # ALL site content — personal info, projects, skills, experience, education
+public/            # Static assets, resume.pdf, images
+old-site/          # Archived static HTML/CSS/JS version (not active)
+```
 
-## GitHub Projects (Top 5)
-The following repos are hardcoded in Featured Projects section:
-- scanner (JavaScript)
-- hackarena-evaluator (JavaScript)  
-- Hackarena-Scanner (JavaScript)
-- Full-Stack_File_Sharing_Application (Java)
-- Online_Learning_Management_System (Java)
+Path alias: `@/*` → `./src/*`
+
+## Important
+
+- **Editing site content** → edit `src/constants/data.ts`. That is the single source of truth for name, bio, projects, skills, etc.
+- **Contact form** is client-side only — simulated API call, no actual backend or form handler.
+- **Projects section** has a 1.5s simulated loading skeleton (for demo purposes).
+- **Custom cursor** activates only on non-touch devices (checks `pointer: coarse`). Add `hover-target` class to elements that should trigger the hover state.
+- **Light theme only** — dark mode `prefers-color-scheme` is explicitly overridden to light values in `globals.css`.

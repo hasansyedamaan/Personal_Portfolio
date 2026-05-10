@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-off-white: #FAFAF9;
+  --color-brand-warm-white: #FFFFFF;
+  --color-brand-soft-stone: #F5F4F0;
+  --color-brand-accent: #4338CA;
+  --color-brand-accent-hover: #3730A3;
+  --color-brand-accent-glow: rgba(67, 56, 202, 0.3);
+  --color-brand-heading: #1C1C1E;
+  --color-brand-body: #6B7280;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06), 0 0 1px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 12px 24px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.04), 0 0 0 2px rgba(67, 56, 202, 0.15);
+}
+
+:root {
+  --background: var(--color-brand-off-white);
+  --foreground: var(--color-brand-body);
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Keeping light theme as requested, overriding dark mode if forced */
+  :root {
+    --background: var(--color-brand-off-white);
+    --foreground: var(--color-brand-body);
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-brand-heading);
+}
+
+/* Background noise texture */
+.bg-noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Gradient Text Animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-text {
+  background-size: 200% auto;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Custom Cursor Hide Native */
+@media (pointer: fine) {
+  /* Only hide native cursor when custom is active but avoid hiding it globally if custom cursor fails. 
+     We'll apply a class to body when custom cursor is mounted */
+  body.custom-cursor-active {
+    cursor: none;
+  }
+  body.custom-cursor-active a, 
+  body.custom-cursor-active button {
+    cursor: none;
+  }
+}
+
+/* Skeleton Loading Shimmer */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+.shimmer-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.4) 20%,
+    rgba(255, 255, 255, 0.8) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+/* NProgress */
+#nprogress {
+  pointer-events: none;
+}
+#nprogress .bar {
+  background: var(--color-brand-accent);
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
