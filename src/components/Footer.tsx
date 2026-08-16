@@ -16,10 +16,10 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           
           <div className="text-center md:text-left">
-            <h2 className="text-xl font-bold text-[var(--color-brand-heading)] mb-2">
+            <h2 className="text-xl font-bold text-brand-heading mb-2">
               {personalInfo.name}
             </h2>
-            <p className="text-[var(--color-brand-body)] text-sm">
+            <p className="text-brand-body text-sm">
               Building digital experiences that matter.
             </p>
           </div>
@@ -29,7 +29,7 @@ export default function Footer() {
               <Link 
                 key={link.name} 
                 href={link.href}
-                className="text-sm font-medium text-[var(--color-brand-body)] hover:text-[var(--color-brand-accent)] transition-colors"
+                className="text-sm font-medium text-brand-body hover:text-brand-accent transition-colors"
               >
                 {link.name}
               </Link>
@@ -41,7 +41,7 @@ export default function Footer() {
               href={personalInfo.github} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-[var(--color-brand-body)] hover:text-[var(--color-brand-heading)] transition-colors"
+              className="text-brand-body hover:text-brand-heading transition-colors"
             >
               GitHub
             </a>
@@ -49,7 +49,7 @@ export default function Footer() {
               href={personalInfo.linkedin} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-[var(--color-brand-body)] hover:text-[var(--color-brand-heading)] transition-colors"
+              className="text-brand-body hover:text-brand-heading transition-colors"
             >
               LinkedIn
             </a>
@@ -71,7 +71,7 @@ export default function Footer() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={scrollToTop}
-        className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-[var(--color-brand-heading)] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-black transition-colors"
+        className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-brand-heading text-white rounded-full flex items-center justify-center shadow-lg hover:bg-black transition-colors"
         aria-label="Scroll to top"
       >
         <HiArrowUp size={20} />

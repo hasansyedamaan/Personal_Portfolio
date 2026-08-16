@@ -60,7 +60,7 @@ export default function CustomCursor() {
   return (
     <div className="fixed inset-0 pointer-events-none z-[9999] hidden md:block">
       <motion.div
-        className="w-2.5 h-2.5 bg-[var(--color-brand-accent)] rounded-full fixed top-0 left-0 -ml-[5px] -mt-[5px]"
+        className="w-2.5 h-2.5 bg-brand-accent rounded-full fixed top-0 left-0 -ml-[5px] -mt-[5px]"
         animate={{
           x: mousePosition.x,
           y: mousePosition.y,

@@ -53,7 +53,7 @@ export default function Ghost() {
             exit={{ opacity: 0, y: -10, scale: 0.8 }}
             className="absolute -top-10 bg-white px-5 py-2 rounded-2xl shadow-lg border border-gray-100 z-20"
           >
-            <p className="text-sm font-bold text-[var(--color-brand-accent)] whitespace-nowrap">{greeting}</p>
+            <p className="text-sm font-bold text-brand-accent whitespace-nowrap">{greeting}</p>
             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-r border-b border-gray-100"></div>
           </motion.div>
         )}

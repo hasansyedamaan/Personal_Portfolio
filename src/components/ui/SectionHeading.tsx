@@ -27,7 +27,7 @@ export default function SectionHeading({ title, subtitle, align = 'center' }: Se
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-          className="text-[var(--color-brand-body)] text-lg md:text-xl max-w-2xl mx-auto"
+          className="text-brand-body text-lg md:text-xl max-w-2xl mx-auto"
         >
           {subtitle}
         </motion.p>

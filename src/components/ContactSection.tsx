@@ -35,7 +35,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative bg-[var(--color-brand-soft-stone)]">
+    <section id="contact" className="py-24 md:py-32 relative bg-brand-soft-stone">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading 
           title="Get In Touch" 
@@ -52,8 +52,8 @@ export default function ContactSection() {
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            <h3 className="text-2xl font-bold text-[var(--color-brand-heading)]">Contact Information</h3>
-            <p className="text-[var(--color-brand-body)]">
+            <h3 className="text-2xl font-bold text-brand-heading">Contact Information</h3>
+            <p className="text-brand-body">
               I&apos;m always open to discussing product design work or partnership opportunities.
             </p>
 
@@ -63,12 +63,12 @@ export default function ContactSection() {
                 className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md cursor-pointer transition-shadow group"
                 title="Click to copy email"
               >
-                <div className="w-12 h-12 flex items-center justify-center bg-indigo-50 text-[var(--color-brand-accent)] rounded-lg group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 flex items-center justify-center bg-indigo-50 text-brand-accent rounded-lg group-hover:scale-110 transition-transform">
                   <HiOutlineMail size={24} />
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 font-medium">Email Me</p>
-                  <p className="text-[var(--color-brand-heading)] font-semibold flex items-center gap-2">
+                  <p className="text-brand-heading font-semibold flex items-center gap-2">
                     {personalInfo.email}
                     {copied && <span className="text-green-500 text-xs flex items-center"><HiCheck className="mr-1" /> Copied!</span>}
                   </p>
@@ -76,12 +76,12 @@ export default function ContactSection() {
               </div>
 
               <div className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm">
-                <div className="w-12 h-12 flex items-center justify-center bg-indigo-50 text-[var(--color-brand-accent)] rounded-lg">
+                <div className="w-12 h-12 flex items-center justify-center bg-indigo-50 text-brand-accent rounded-lg">
                   <HiOutlinePhone size={24} />
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 font-medium">Call Me</p>
-                  <p className="text-[var(--color-brand-heading)] font-semibold">{personalInfo.phone}</p>
+                  <p className="text-brand-heading font-semibold">{personalInfo.phone}</p>
                 </div>
               </div>
             </div>
@@ -93,39 +93,39 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6 }}
-            className="bg-white p-8 md:p-10 rounded-2xl shadow-[var(--shadow-card)]"
+            className="bg-white p-8 md:p-10 rounded-2xl shadow-(--shadow-card)"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-[var(--color-brand-heading)]">Name</label>
+                  <label htmlFor="name" className="text-sm font-medium text-brand-heading">Name</label>
                   <input 
                     type="text" 
                     id="name" 
                     required 
-                    className="w-full px-4 py-3 bg-[var(--color-brand-soft-stone)] border border-transparent focus:bg-white focus:border-[var(--color-brand-accent)] focus:ring-2 focus:ring-[var(--color-brand-accent-glow)] rounded-lg outline-none transition-all"
+                    className="w-full px-4 py-3 bg-brand-soft-stone border border-transparent focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent-glow rounded-lg outline-none transition-all"
                     placeholder="John Doe"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-[var(--color-brand-heading)]">Email</label>
+                  <label htmlFor="email" className="text-sm font-medium text-brand-heading">Email</label>
                   <input 
                     type="email" 
                     id="email" 
                     required 
-                    className="w-full px-4 py-3 bg-[var(--color-brand-soft-stone)] border border-transparent focus:bg-white focus:border-[var(--color-brand-accent)] focus:ring-2 focus:ring-[var(--color-brand-accent-glow)] rounded-lg outline-none transition-all"
+                    className="w-full px-4 py-3 bg-brand-soft-stone border border-transparent focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent-glow rounded-lg outline-none transition-all"
                     placeholder="john@example.com"
                   />
                 </div>
               </div>
               
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-[var(--color-brand-heading)]">Message</label>
+                <label htmlFor="message" className="text-sm font-medium text-brand-heading">Message</label>
                 <textarea 
                   id="message" 
                   required 
                   rows={4}
-                  className="w-full px-4 py-3 bg-[var(--color-brand-soft-stone)] border border-transparent focus:bg-white focus:border-[var(--color-brand-accent)] focus:ring-2 focus:ring-[var(--color-brand-accent-glow)] rounded-lg outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 bg-brand-soft-stone border border-transparent focus:bg-white focus:border-brand-accent focus:ring-2 focus:ring-brand-accent-glow rounded-lg outline-none transition-all resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>

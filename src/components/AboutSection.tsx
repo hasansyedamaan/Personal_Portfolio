@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import SectionHeading from './ui/SectionHeading';
-import { experience, education } from '@/constants/data';
+import { experience, education, personalInfo } from '@/constants/data';
 import { HiOutlineAcademicCap, HiOutlineBriefcase } from 'react-icons/hi';
 import Image from 'next/image';
 
@@ -38,7 +38,7 @@ export default function AboutSection() {
             whileInView="visible"
             viewport={{ once: false, margin: "-100px" }}
           >
-            <motion.div variants={itemVariants} className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 shadow-[var(--shadow-card)]">
+            <motion.div variants={itemVariants} className="relative w-full aspect-4/3 rounded-2xl overflow-hidden mb-8 shadow-(--shadow-card)">
               <Image 
                 src="/profile2.png" 
                 alt="Amaan Hasan" 
@@ -49,20 +49,16 @@ export default function AboutSection() {
               <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
             </motion.div>
             
-            <motion.h3 variants={itemVariants} className="text-2xl font-bold mb-4 text-[var(--color-brand-heading)]">
+            <motion.h3 variants={itemVariants} className="text-2xl font-bold mb-4 text-brand-heading">
               Get to know me
             </motion.h3>
             
-            <motion.div variants={itemVariants} className="prose prose-lg text-[var(--color-brand-body)]">
-              <p className="mb-4">
-                I am Syed Amaan Hasan currently pursuing M-Tech student in Artificial Intelligence and Machine Learning at Birla Institute of Technology and Science and a recent B-Tech Computer Science and Engineering graduate from Graphic Era University.
-              </p>
-              <p className="mb-4">
-                Currently working as an Associate Prompt Engineer at Nvidia, I design and optimize large-scale prompt pipelines for conversational and multimodal LLM systems. I have developed and evaluated 500+ structured prompts, performed hallucination and bias analysis, and contributed to high-quality training datasets that enhance model reliability and performance.
-              </p>
-              <p>
-                Passionate about applied AI, NLP, and backend engineering, I focus on creating practical, scalable, and impactful technology solutions.
-              </p>
+            <motion.div variants={itemVariants} className="prose prose-lg text-brand-body">
+              {personalInfo.bio.split('\n\n').map((paragraph, i) => (
+                <p key={i} className="mb-4 leading-relaxed last:mb-0">
+                  {paragraph}
+                </p>
+              ))}
             </motion.div>
           </motion.div>
 
@@ -77,10 +73,10 @@ export default function AboutSection() {
             {/* Experience */}
             <div className="mb-12">
               <motion.div variants={itemVariants} className="flex items-center gap-3 mb-8">
-                <div className="p-3 rounded-xl bg-indigo-50 text-[var(--color-brand-accent)]">
+                <div className="p-3 rounded-xl bg-indigo-50 text-brand-accent">
                   <HiOutlineBriefcase size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-[var(--color-brand-heading)]">Work Experience</h3>
+                <h3 className="text-2xl font-bold text-brand-heading">Work Experience</h3>
               </motion.div>
 
               <div className="space-y-8 ml-6 pl-8 relative">
@@ -106,15 +102,20 @@ export default function AboutSection() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: false, margin: "-100px" }}
                       transition={{ delay: 0.2 + i * 0.1, type: "spring", stiffness: 300, damping: 20 }}
-                      className="absolute -left-[41px] top-1 w-5 h-5 rounded-full border-4 border-white bg-[var(--color-brand-accent)] shadow-sm z-10"
+                      className="absolute -left-10.25 top-1 w-5 h-5 rounded-full border-4 border-white bg-brand-accent shadow-sm z-10"
                     />
-                    <div className="bg-[var(--color-brand-soft-stone)] p-6 rounded-2xl hover:shadow-[var(--shadow-card)] transition-shadow duration-300">
-                      <span className="text-sm font-semibold text-[var(--color-brand-accent)] tracking-wide uppercase mb-1 block">
+                    <div className="bg-brand-soft-stone p-6 rounded-2xl hover:shadow-(--shadow-card) transition-shadow duration-300">
+                      <span className="text-sm font-semibold text-brand-accent tracking-wide uppercase mb-1 block">
                         {exp.date}
                       </span>
-                      <h4 className="text-lg font-bold text-[var(--color-brand-heading)] mb-1">{exp.role}</h4>
-                      <h5 className="text-md font-medium text-gray-600 mb-4">{exp.company}</h5>
-                      <p className="text-[var(--color-brand-body)] leading-relaxed">
+                      <h4 className="text-lg font-bold text-brand-heading mb-1">{exp.role}</h4>
+                      <div className="flex items-center gap-3 mb-4">
+                        {exp.logo && (
+                          <Image src={exp.logo} alt={exp.company} width={48} height={48} className="object-contain flex-shrink-0" />
+                        )}
+                        <h5 className="text-md font-medium text-gray-600">{exp.company}</h5>
+                      </div>
+                      <p className="text-brand-body leading-relaxed">
                         {exp.desc}
                       </p>
                     </div>
@@ -126,10 +127,10 @@ export default function AboutSection() {
             {/* Education */}
             <div>
               <motion.div variants={itemVariants} className="flex items-center gap-3 mb-8">
-                <div className="p-3 rounded-xl bg-indigo-50 text-[var(--color-brand-accent)]">
+                <div className="p-3 rounded-xl bg-indigo-50 text-brand-accent">
                   <HiOutlineAcademicCap size={24} />
                 </div>
-                <h3 className="text-2xl font-bold text-[var(--color-brand-heading)]">Education</h3>
+                <h3 className="text-2xl font-bold text-brand-heading">Education</h3>
               </motion.div>
 
               <div className="space-y-8 ml-6 pl-8 relative">
@@ -155,15 +156,20 @@ export default function AboutSection() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: false, margin: "-100px" }}
                       transition={{ delay: 0.2 + i * 0.1, type: "spring", stiffness: 300, damping: 20 }}
-                      className="absolute -left-[41px] top-1 w-5 h-5 rounded-full border-4 border-white bg-[var(--color-brand-accent)] shadow-sm z-10"
+                      className="absolute -left-10.25 top-1 w-5 h-5 rounded-full border-4 border-white bg-brand-accent shadow-sm z-10"
                     />
-                    <div className="bg-[var(--color-brand-soft-stone)] p-6 rounded-2xl hover:shadow-[var(--shadow-card)] transition-shadow duration-300">
-                      <span className="text-sm font-semibold text-[var(--color-brand-accent)] tracking-wide uppercase mb-1 block">
+                    <div className="bg-brand-soft-stone p-6 rounded-2xl hover:shadow-(--shadow-card) transition-shadow duration-300">
+                      <span className="text-sm font-semibold text-brand-accent tracking-wide uppercase mb-1 block">
                         {edu.date}
                       </span>
-                      <h4 className="text-lg font-bold text-[var(--color-brand-heading)] mb-1">{edu.degree}</h4>
-                      <h5 className="text-md font-medium text-gray-600 mb-4">{edu.school}</h5>
-                      <p className="text-[var(--color-brand-body)] leading-relaxed">
+                      <h4 className="text-lg font-bold text-brand-heading mb-1">{edu.degree}</h4>
+                      <div className="flex items-center gap-3 mb-4">
+                        {edu.logo && (
+                          <Image src={edu.logo} alt={edu.school} width={36} height={36} className="object-contain flex-shrink-0" />
+                        )}
+                        <h5 className="text-md font-medium text-gray-600">{edu.school}</h5>
+                      </div>
+                      <p className="text-brand-body leading-relaxed">
                         {edu.desc}
                       </p>
                     </div>

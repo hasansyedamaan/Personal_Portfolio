@@ -20,7 +20,7 @@ export default function PageLoader() {
         <motion.div
           initial={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: '-100%', transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] } }}
-          className="fixed inset-0 z-[99999] bg-[var(--color-brand-heading)] flex flex-col items-center justify-center pointer-events-none"
+          className="fixed inset-0 z-[99999] bg-brand-heading flex flex-col items-center justify-center pointer-events-none"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -28,7 +28,7 @@ export default function PageLoader() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="text-white text-5xl md:text-7xl font-bold tracking-tight mb-4"
           >
-            Amaan<span className="text-[var(--color-brand-accent)]">.</span>
+            Amaan<span className="text-brand-accent">.</span>
           </motion.div>
           
           <div className="w-48 h-1 bg-gray-800 rounded-full overflow-hidden mt-6">
@@ -36,7 +36,7 @@ export default function PageLoader() {
               initial={{ x: '-100%' }}
               animate={{ x: '100%' }}
               transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-              className="w-full h-full bg-[var(--color-brand-accent)]"
+              className="w-full h-full bg-brand-accent"
             />
           </div>
         </motion.div>

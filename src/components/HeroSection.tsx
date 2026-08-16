@@ -24,7 +24,7 @@ export default function HeroSection() {
   return (
     <section 
       id="home" 
-      className="relative min-h-[100svh] flex items-center justify-center pt-24 pb-16 overflow-hidden"
+      className="relative min-h-svh flex items-center justify-center pt-24 pb-16 overflow-hidden"
     >
       {/* Dynamic Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden opacity-30 pointer-events-none mix-blend-multiply">
@@ -62,9 +62,9 @@ export default function HeroSection() {
               hidden: { opacity: 0, y: 32 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const } }
             }}
-            className="inline-block px-4 py-2 bg-white rounded-full shadow-[var(--shadow-card)] border border-gray-100"
+            className="inline-block px-4 py-2 bg-white rounded-full shadow-(--shadow-card) border border-gray-100"
           >
-            <span className="text-sm font-semibold text-[var(--color-brand-heading)] tracking-wide uppercase">
+            <span className="text-sm font-semibold text-brand-heading tracking-wide uppercase">
               Hello there! I am
             </span>
           </motion.div>
@@ -74,10 +74,10 @@ export default function HeroSection() {
               hidden: { opacity: 0, y: 32 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const } }
             }}
-            className="text-5xl sm:text-6xl md:text-[clamp(48px,6vw,80px)] font-extrabold leading-[1.1] tracking-tight text-[var(--color-brand-heading)] overflow-wrap break-word"
+            className="text-5xl sm:text-6xl md:text-[clamp(48px,6vw,80px)] font-extrabold leading-[1.1] tracking-tight text-brand-heading overflow-wrap break-word"
           >
             {personalInfo.name.split(' ')[0]} <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-blue-500 to-indigo-500 animate-gradient-text">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 via-blue-500 to-indigo-500 animate-gradient-text">
               {personalInfo.name.split(' ').slice(1).join(' ')}
             </span>
           </motion.h1>
@@ -87,10 +87,9 @@ export default function HeroSection() {
               hidden: { opacity: 0, y: 32 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const } }
             }}
-            className="text-lg md:text-xl text-[var(--color-brand-body)] max-w-lg leading-relaxed"
+            className="text-lg md:text-xl text-brand-body max-w-lg leading-relaxed"
           >
-            Passionate Software Developer crafting cutting-edge applications
-            with expertise in full-stack development and AI/ML solutions.
+            M.Tech AI/ML Scholar and Associate Prompt Engineer crafting state-of-the-art multimodal AI solutions and scalable software architecture.
           </motion.p>
 
           <motion.div 
@@ -123,7 +122,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-          className="relative w-full aspect-square md:aspect-[4/5] lg:aspect-square max-w-md mx-auto hidden sm:block"
+          className="relative w-full aspect-square md:aspect-4/5 lg:aspect-square max-w-md mx-auto hidden sm:block"
         >
           {/* We are passing `any` to Tilt because it's a JS library without great typings, and we want to render it as a div */}
           <Tilt options={defaultOptions} className="w-full h-full relative" style={{ transformStyle: 'preserve-3d' }}>
@@ -144,8 +143,8 @@ export default function HeroSection() {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce"
       >
-        <span className="text-xs text-[var(--color-brand-body)] uppercase tracking-widest mb-2 font-medium">Scroll</span>
-        <div className="w-[1px] h-8 bg-[var(--color-brand-accent)]" />
+        <span className="text-xs text-brand-body uppercase tracking-widest mb-2 font-medium">Scroll</span>
+        <div className="w-px h-8 bg-brand-accent" />
       </motion.div>
     </section>
   );

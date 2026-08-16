@@ -35,11 +35,15 @@ export default function ProjectsSection() {
   };
 
   const getProjectIcon = (title: string) => {
+    if (title.includes("X-MAV")) return <HiOutlineBookOpen size={24} />;
     if (title.includes("ATS")) return <HiOutlineDocumentSearch size={24} />;
     if (title.includes("File Sharing")) return <HiOutlineShare size={24} />;
+    if (title.includes("Attention")) return <HiOutlineCloud size={24} />;
+    if (title.includes("6D Pose")) return <HiOutlineCode size={24} />;
     if (title.includes("Learning")) return <HiOutlineBookOpen size={24} />;
     if (title.includes("Climate")) return <HiOutlineCloud size={24} />;
     if (title.includes("Tweet")) return <HiOutlineChatAlt2 size={24} />;
+    if (title.includes("Sign Language")) return <HiOutlineChatAlt2 size={24} />;
     return <HiOutlineCode size={24} />;
   };
 
@@ -52,7 +56,7 @@ export default function ProjectsSection() {
       case 'java': return <FaJava {...iconProps} className="w-3 h-3 mr-1.5 text-red-500" />;
       case 'jupyter': return <SiJupyter {...iconProps} className="w-3 h-3 mr-1.5 text-orange-400" />;
       case 'python': return <FaPython {...iconProps} className="w-3 h-3 mr-1.5 text-blue-600" />;
-      default: return null;
+      default: return <HiOutlineCode {...iconProps} className="w-3 h-3 mr-1.5 text-gray-400" />;
     }
   };
 
@@ -86,7 +90,7 @@ export default function ProjectsSection() {
           {loading ? (
             // Skeleton Loader
             [1, 2, 3, 4, 5].map((item) => (
-              <div key={`skeleton-${item}`} className="w-full aspect-[4/3] relative rounded-2xl overflow-hidden shadow-[var(--shadow-card)]">
+              <div key={`skeleton-${item}`} className="w-full aspect-4/3 relative rounded-2xl overflow-hidden shadow-(--shadow-card)">
                  <Skeleton className="w-full h-full" />
               </div>
             ))
@@ -99,24 +103,28 @@ export default function ProjectsSection() {
                     href={project.link} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="group block w-full h-full bg-[var(--color-brand-off-white)] border border-gray-100 rounded-2xl p-6 md:p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-accent)]"
+                    className="group block w-full h-full bg-brand-off-white border border-gray-100 rounded-2xl p-6 md:p-8 shadow-(--shadow-card) hover:shadow-(--shadow-card-hover) transition-all duration-300 relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-brand-accent"
                     style={{ transform: 'translateZ(20px)' }}
                   >
-                    <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-[var(--color-brand-accent)]">
+                    <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-brand-accent">
                       <HiOutlineExternalLink size={24} />
                     </div>
 
-                    <div className="mb-6 w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-[var(--color-brand-accent)]">
+                    <div className="mb-6 w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-brand-accent">
                       {getProjectIcon(project.title)}
                     </div>
 
-                    <h3 className="text-xl font-bold mb-4 text-[var(--color-brand-heading)] group-hover:text-[var(--color-brand-accent)] transition-colors">
+                    <h3 className="text-xl font-bold mb-3 text-brand-heading group-hover:text-brand-accent transition-colors">
                       {project.title}
                     </h3>
                     
+                    <p className="text-sm text-brand-body mb-4 line-clamp-3 leading-relaxed">
+                      {project.description}
+                    </p>
+                    
                     <div className="mt-auto pt-6 flex flex-wrap gap-2">
                       {project.stack.map(tech => (
-                        <span key={tech} className="flex items-center px-3 py-1 bg-white rounded-full text-xs font-medium text-[var(--color-brand-body)] shadow-sm">
+                        <span key={tech} className="flex items-center px-3 py-1 bg-white rounded-full text-xs font-medium text-brand-body shadow-sm">
                           {getTechIcon(tech)}
                           {tech}
                         </span>

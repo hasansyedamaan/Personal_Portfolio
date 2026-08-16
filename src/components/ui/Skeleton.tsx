@@ -9,7 +9,7 @@ export default function Skeleton({ className }: SkeletonProps) {
   return (
     <div 
       className={twMerge(
-        clsx("shimmer-wrapper bg-[var(--color-brand-soft-stone)] rounded-lg"), 
+        clsx("shimmer-wrapper bg-brand-soft-stone rounded-lg"), 
         className
       )} 
     />

@@ -24,10 +24,10 @@ export default function Button({
   const baseClasses = "relative overflow-hidden inline-flex items-center justify-center font-medium transition-all duration-300 ease-out rounded-lg px-6 py-3";
   
   const variants = {
-    primary: "bg-[var(--color-brand-accent)] text-white hover:bg-[var(--color-brand-accent-hover)] shadow-md hover:shadow-[var(--shadow-card-hover)]",
-    secondary: "bg-[var(--color-brand-heading)] text-white hover:bg-black shadow-md",
-    outline: "border-2 border-[var(--color-brand-accent)] text-[var(--color-brand-accent)] hover:bg-[var(--color-brand-accent)] hover:text-white",
-    ghost: "text-[var(--color-brand-body)] hover:text-[var(--color-brand-heading)] hover:bg-[var(--color-brand-soft-stone)]"
+    primary: "bg-brand-accent text-white hover:bg-brand-accent-hover shadow-md hover:shadow-(--shadow-card-hover)",
+    secondary: "bg-brand-heading text-white hover:bg-black shadow-md",
+    outline: "border-2 border-[var(--color-brand-accent)] text-brand-accent hover:bg-brand-accent hover:text-white",
+    ghost: "text-brand-body hover:text-brand-heading hover:bg-brand-soft-stone"
   };
 
   return (

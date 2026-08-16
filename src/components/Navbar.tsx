@@ -44,8 +44,8 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <Link href="#home" className="text-2xl font-bold text-[var(--color-brand-heading)] group">
-          Amaan<span className="text-[var(--color-brand-accent)]">.</span>
+        <Link href="#home" className="text-2xl font-bold text-brand-heading group">
+          Amaan<span className="text-brand-accent">.</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -56,12 +56,12 @@ export default function Navbar() {
               href={link.href}
               className={`text-sm font-medium transition-colors relative group ${
                 activeSection === link.name.toLowerCase() 
-                  ? 'text-[var(--color-brand-accent)]' 
-                  : 'text-[var(--color-brand-body)] hover:text-[var(--color-brand-heading)]'
+                  ? 'text-brand-accent' 
+                  : 'text-brand-body hover:text-brand-heading'
               }`}
             >
               {link.name}
-              <span className={`absolute -bottom-1 left-0 w-0 h-[2px] bg-[var(--color-brand-accent)] transition-all duration-300 group-hover:w-full ${
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-hover:w-full ${
                 activeSection === link.name.toLowerCase() ? 'w-full' : ''
               }`} />
             </Link>
@@ -70,7 +70,7 @@ export default function Navbar() {
             href="https://www.linkedin.com/in/syed-amaan-hasan-497898212/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-full bg-[var(--color-brand-heading)] text-white text-sm font-medium hover:bg-black transition-colors"
+            className="px-5 py-2.5 rounded-full bg-brand-heading text-white text-sm font-medium hover:bg-black transition-colors"
           >
             LinkedIn
           </a>
@@ -78,7 +78,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden text-[var(--color-brand-heading)] p-2 z-50 hover-target"
+          className="md:hidden text-brand-heading p-2 z-50 hover-target"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -107,7 +107,7 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       onClick={closeMenu}
-                      className="text-3xl font-bold text-[var(--color-brand-heading)] hover:text-[var(--color-brand-accent)] transition-colors"
+                      className="text-3xl font-bold text-brand-heading hover:text-brand-accent transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -121,7 +121,7 @@ export default function Navbar() {
                   href="https://www.linkedin.com/in/syed-amaan-hasan-497898212/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 px-8 py-4 w-full text-center rounded-full bg-[var(--color-brand-accent)] text-white text-lg font-medium shadow-lg hover-target active:scale-95 transition-transform"
+                  className="mt-8 px-8 py-4 w-full text-center rounded-full bg-brand-accent text-white text-lg font-medium shadow-lg hover-target active:scale-95 transition-transform"
                 >
                   Connect on LinkedIn
                 </motion.a>
